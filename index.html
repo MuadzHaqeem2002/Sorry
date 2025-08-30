@@ -19,7 +19,7 @@
             justify-content: center;
             align-items: center;
             padding: 20px;
-            overflow: hidden;
+            overflow-x: hidden;
         }
         
         .container {
@@ -186,9 +186,38 @@
             z-index: 2;
         }
         
+        /* Responsive design improvements */
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 25px;
+                border-radius: 15px;
+            }
+            
+            h1 {
+                font-size: 2.3rem;
+                margin-bottom: 20px;
+            }
+            
+            .apology-text {
+                padding: 20px;
+            }
+            
+            .apology-text p {
+                font-size: 1.1rem;
+            }
+            
+            .flowers {
+                gap: 20px;
+            }
+            
+            .flower {
+                font-size: 35px;
+            }
+        }
+        
         @media (max-width: 600px) {
             h1 {
-                font-size: 2.2rem;
+                font-size: 2rem;
             }
             
             .apology-text p {
@@ -198,10 +227,12 @@
             .button-container {
                 flex-direction: column;
                 align-items: center;
+                min-height: 140px;
             }
             
             button {
-                width: 80%;
+                width: 100%;
+                max-width: 280px;
             }
             
             .flowers {
@@ -216,6 +247,71 @@
                 position: relative;
                 margin-top: 10px;
             }
+            
+            .response {
+                font-size: 1.3rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            body {
+                padding: 15px;
+            }
+            
+            .container {
+                padding: 25px 20px;
+                border-radius: 12px;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .apology-text {
+                padding: 15px;
+            }
+            
+            .message-container p {
+                font-size: 0.95rem;
+            }
+            
+            button {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+            
+            .response {
+                font-size: 1.2rem;
+            }
+            
+            .signature {
+                font-size: 0.9rem;
+            }
+        }
+        
+        @media (max-width: 360px) {
+            h1 {
+                font-size: 1.6rem;
+            }
+            
+            .flowers {
+                gap: 10px;
+            }
+            
+            .flower {
+                font-size: 25px;
+            }
+            
+            button {
+                padding: 10px 20px;
+                font-size: 0.95rem;
+            }
+        }
+        
+        /* Prevent text size adjustment on orientation change */
+        html {
+            -webkit-text-size-adjust: 100%;
+            text-size-adjust: 100%;
         }
     </style>
 </head>
@@ -248,16 +344,16 @@
         
         <div class="button-container">
             <button id="forgive-btn">Yes, I forgive you</button>
-            <button id="more-btn">I need more convincing</button>
+            <button id="more-btn">No, I xmau</button>
         </div>
         
         <div class="response" id="response"></div>
         
-        <div class="instructions" id="instructions">(Try clicking the blue button if you dare!)</div>
+        <!-- <div class="instructions" id="instructions">(Try clicking the blue button if you dare!)</div> -->
         
         <div class="signature">
             <p>Forever yours,</p>
-            <p>[Your Name]</p>
+            <p>Muadz Hensemz</p>
         </div>
     </div>
 
@@ -286,6 +382,7 @@
         
         // Track button movement attempts
         let moveCount = 0;
+        const maxAttempts = 20; // Number of attempts before button disappears
         
         // Handle button movements
         function moveButton() {
@@ -311,23 +408,34 @@
             moreBtn.style.top = `${randomY}px`;
             
             // Change messages based on attempts
-            if (moveCount === 7) {
-                response.innerHTML = "Janganla merajukk ii dah sayang😜😜";
-            } else if (moveCount === 9) {
-                response.innerHTML = "Okay okay I mintak maaf 🥺🥺";
-            } else if (moveCount === 12) {
-                response.innerHTML = "You betoll ii marah ni 😭😭";
-            } else if (moveCount === 15) {
-                response.innerHTML = "Dah ii la merajuk baby nanti cepat tua 😱😱";
-            } else if (moveCount === 15) {
-                response.innerHTML = "I belanja u makan okay 😉😉";
-            }
+            // if (moveCount === 7) {
+            //     response.innerHTML = "Janganla merajukk ii dah sayang😜😜";
+            // } else if (moveCount === 9) {
+            //     response.innerHTML = "Okay okay I mintak maaf 🥺🥺";
+            // } else if (moveCount === 12) {
+            //     response.innerHTML = "You betoll ii marah ni 😭😭";
+            // } else if (moveCount === 15) {
+            //     response.innerHTML = "Dah ii la merajuk baby nanti cepat tua 😱😱";
+            // } else if (moveCount === 18) {
+            //     response.innerHTML = "Baby kena tekan jugak button atas 😉😉";
+            // }
             
             // Make the button smaller after many attempts
             if (moveCount > 10) {
                 const newSize = 15 - moveCount/2;
                 moreBtn.style.fontSize = `${newSize > 10 ? newSize : 10}px`;
                 moreBtn.style.padding = `${newSize > 10 ? newSize/2 : 5}px ${newSize > 10 ? newSize : 10}px`;
+            }
+            
+            // Make the button disappear after max attempts
+            if (moveCount >= maxAttempts) {
+                moreBtn.style.display = 'none';
+                
+                
+                // Show the alert message
+                setTimeout(function() {
+                    alert("Kena maafkan jugak");
+                }, 500);
             }
         }
         
@@ -393,6 +501,20 @@
                 moreBtn.style.position = 'absolute';
             }
         };
+
+        // Handle window resize
+        window.addEventListener('resize', function() {
+            // Reset button position on resize
+            if (window.innerWidth <= 600) {
+                moreBtn.style.position = 'relative';
+                moreBtn.style.left = '0';
+                moreBtn.style.top = '0';
+                moreBtn.style.fontSize = '1.1rem';
+                moreBtn.style.padding = '15px 30px';
+            } else {
+                moreBtn.style.position = 'absolute';
+            }
+        });
     </script>
 </body>
 </html>
