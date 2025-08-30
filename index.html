@@ -366,15 +366,28 @@
 
       <!-- Justin Bieber Sorry Song -->
       <div class="music-player">
-        <audio controls autoplay loop style="display: none;">
+        <audio id="player" autoplay loop muted style="width: 100%">
           <source
-            src="https://www.dropbox.com/scl/fi/2rn1wouuyi1ez3dpmhcrz/Justin-Bieber-Sorry-Lyric-Video.mp3?rlkey=dzrolgguwxz3o8ra24tw4p1w5&st=w776kaaw&raw=1"
+            src="https://www.dropbox.com/scl/fi/2rn1wouuyi1ez3dpmhcrz/Justin-Bieber-Sorry-Lyric-Video.mp3?rlkey=dzrolgguwxz3o8ra24tw4p1w5&raw=1"
             type="audio/mpeg"
           />
           Your browser does not support the audio element.
         </audio>
         
       </div>
+
+      <script>
+        // unmute on first user click
+        document.addEventListener(
+          "click",
+          () => {
+            const player = document.getElementById("player");
+            player.muted = false;
+            player.play();
+          },
+          { once: true }
+        );
+      </script>
 
       <div class="signature">
         <p>Your hensem BF,</p>
