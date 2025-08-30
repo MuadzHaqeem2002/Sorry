@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Please Forgive Me ❤️</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            overflow: hidden;
+        }
+        
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hearts {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .heart {
+            position: absolute;
+            font-size: 20px;
+            color: #ff4d6d;
+            opacity: 0;
+            animation: fall 5s linear infinite;
+        }
+        
+        @keyframes fall {
+            0% {
+                transform: translateY(-10px) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        h1 {
+            color: #ff4d6d;
+            margin-bottom: 30px;
+            font-size: 2.8rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .message-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 30px 0;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .apology-text {
+            background: #fff5f7;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border-left: 5px solid #ff4d6d;
+            text-align: center;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .apology-text p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        
+        .flowers {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 30px 0;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .flower {
+            font-size: 40px;
+            animation: bloom 3s infinite alternate;
+        }
+        
+        @keyframes bloom {
+            0% { transform: scale(0.9); }
+            100% { transform: scale(1.1); }
+        }
+        
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 2;
+            min-height: 80px;
+        }
+        
+        button {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            position: relative;
+        }
+        
+        #forgive-btn {
+            background: #ff4d6d;
+            color: white;
+            box-shadow: 0 4px 15px rgba(255, 77, 109, 0.3);
+            z-index: 10;
+        }
+        
+        #forgive-btn:hover {
+            background: #ff2e4f;
+            transform: translateY(-3px);
+        }
+        
+        #more-btn {
+            background: #4d79ff;
+            color: white;
+            box-shadow: 0 4px 15px rgba(77, 121, 255, 0.3);
+            position: absolute;
+            transition: all 0.5s ease;
+        }
+        
+        .response {
+            margin-top: 20px;
+            font-size: 1.5rem;
+            color: #ff4d6d;
+            font-weight: bold;
+            min-height: 40px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .signature {
+            margin-top: 30px;
+            font-style: italic;
+            color: #777;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .instructions {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #999;
+            position: relative;
+            z-index: 2;
+        }
+        
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .apology-text p {
+                font-size: 1rem;
+            }
+            
+            .button-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            button {
+                width: 80%;
+            }
+            
+            .flowers {
+                gap: 15px;
+            }
+            
+            .flower {
+                font-size: 30px;
+            }
+            
+            #more-btn {
+                position: relative;
+                margin-top: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hearts" id="hearts"></div>
+        
+        <h1>To My Beautiful Girlfriend ❤️</h1>
+        
+        <div class="message-container">
+            <p>My Dearest,</p>
+            
+            <div class="apology-text">
+                <p>I never meant to hurt you. I tau I salah I'm so sorry 😔.</p>
+                <p>You mean the world to me, and seeing you upset breaks my heart.</p>
+                <p>Please let us be macam dulu back sayang 😘</p>
+                <p>I promise to learn from this and try my best not to do this again</p>
+            </div>
+            
+            <p>With all my love and regret,</p>
+        </div>
+        
+        <div class="flowers">
+            <div class="flower">🌹</div>
+            <div class="flower">🌷</div>
+            <div class="flower">🌸</div>
+        </div>
+        
+        <p>Will you please forgive me?</p>
+        
+        <div class="button-container">
+            <button id="forgive-btn">Yes, I forgive you</button>
+            <button id="more-btn">I need more convincing</button>
+        </div>
+        
+        <div class="response" id="response"></div>
+        
+        <div class="instructions" id="instructions">(Try clicking the blue button if you dare!)</div>
+        
+        <div class="signature">
+            <p>Forever yours,</p>
+            <p>[Your Name]</p>
+        </div>
+    </div>
+
+    <script>
+        // Create floating hearts
+        function createHearts() {
+            const heartsContainer = document.getElementById('hearts');
+            const heartCount = 30;
+            
+            for (let i = 0; i < heartCount; i++) {
+                const heart = document.createElement('div');
+                heart.classList.add('heart');
+                heart.innerHTML = '❤️';
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.animationDuration = (Math.random() * 4 + 3) + 's';
+                heart.style.animationDelay = Math.random() * 5 + 's';
+                heartsContainer.appendChild(heart);
+            }
+        }
+        
+        // Get the buttons
+        const forgiveBtn = document.getElementById('forgive-btn');
+        const moreBtn = document.getElementById('more-btn');
+        const response = document.getElementById('response');
+        const instructions = document.getElementById('instructions');
+        
+        // Track button movement attempts
+        let moveCount = 0;
+        
+        // Handle button movements
+        function moveButton() {
+            moveCount++;
+            
+            // Get container dimensions
+            const container = document.querySelector('.button-container');
+            const containerRect = container.getBoundingClientRect();
+            
+            // Get button dimensions
+            const buttonRect = moreBtn.getBoundingClientRect();
+            
+            // Calculate maximum positions
+            const maxX = containerRect.width - buttonRect.width;
+            const maxY = containerRect.height - buttonRect.height;
+            
+            // Generate random position within container
+            const randomX = Math.floor(Math.random() * maxX);
+            const randomY = Math.floor(Math.random() * maxY);
+            
+            // Move the button
+            moreBtn.style.left = `${randomX}px`;
+            moreBtn.style.top = `${randomY}px`;
+            
+            // Change messages based on attempts
+            if (moveCount === 7) {
+                response.innerHTML = "Janganla merajukk ii dah sayang😜😜";
+            } else if (moveCount === 9) {
+                response.innerHTML = "Okay okay I mintak maaf 🥺🥺";
+            } else if (moveCount === 12) {
+                response.innerHTML = "You betoll ii marah ni 😭😭";
+            } else if (moveCount === 15) {
+                response.innerHTML = "Dah ii la merajuk baby nanti cepat tua 😱😱";
+            } else if (moveCount === 15) {
+                response.innerHTML = "I belanja u makan okay 😉😉";
+            }
+            
+            // Make the button smaller after many attempts
+            if (moveCount > 10) {
+                const newSize = 15 - moveCount/2;
+                moreBtn.style.fontSize = `${newSize > 10 ? newSize : 10}px`;
+                moreBtn.style.padding = `${newSize > 10 ? newSize/2 : 5}px ${newSize > 10 ? newSize : 10}px`;
+            }
+        }
+        
+        // Set up event listeners
+        moreBtn.addEventListener('mouseover', moveButton);
+        moreBtn.addEventListener('touchstart', function(e) {
+            e.preventDefault();
+            moveButton();
+        });
+        moreBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            moveButton();
+            // Make it even harder to click by moving again
+            setTimeout(moveButton, 200);
+        });
+        
+        // Forgive button functionality
+        forgiveBtn.addEventListener('click', function() {
+            const responses = [
+                "BBY DABEST ❤️",
+                "TERIMA KASIH SAYANG SAYERRRR 🌹",
+                "I LEBIU SO MUCH BBY AYANG UCUK ACAM 💕",
+                "TAK PERNAH TAK SAYANG BB 😘"
+            ];
+            
+            const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+            response.innerHTML = randomResponse;
+            
+            // Remove the other button
+            moreBtn.style.display = 'none';
+            instructions.style.display = 'none';
+            
+            // Create celebration hearts
+            createCelebrationHearts();
+        });
+        
+        // Create celebration hearts
+        function createCelebrationHearts() {
+            const container = document.querySelector('.container');
+            
+            for (let i = 0; i < 20; i++) {
+                const heart = document.createElement('div');
+                heart.classList.add('heart');
+                heart.innerHTML = '❤️';
+                heart.style.position = 'absolute';
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                container.appendChild(heart);
+                
+                // Remove heart after animation completes
+                setTimeout(() => {
+                    heart.remove();
+                }, 5000);
+            }
+        }
+        
+        // Initialize the page with hearts
+        window.onload = function() {
+            createHearts();
+            
+            // Make sure the "more convincing" button is positioned absolutely on desktop
+            if (window.innerWidth > 600) {
+                moreBtn.style.position = 'absolute';
+            }
+        };
+    </script>
+</body>
+</html>
